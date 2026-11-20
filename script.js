@@ -106,8 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     triggerStardustBurst(clickX, clickY);
 
-    // Play royal chime
+    // Play royal chime & ensure background music is playing
     playRoyalChime();
+    startMusicPlayback();
 
     // Keep video paused until user clicks Watch Invitation Film or scrolls into it
     if (video) {
@@ -257,105 +258,81 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------------------------------
-  // 2. SOUND DEFAULT & SCROLL-TRIGGERED AUTOPLAY
+  // 2. BACKGROUND MUSIC & FLOATING MUTE CONTROLS
   // -------------------------------------------------------------------------
-  if (video) {
-    video.muted = false; // Default sound enabled
-  }
+  const bgAudio = document.getElementById('bgAudio');
+  const musicToggleBtn = document.getElementById('musicToggleBtn');
+  const musicToggleIcon = document.getElementById('musicToggleIcon');
+  let isMusicPlaying = false;
 
-  function updateMuteButtonUI() {
-    if (!video || !smallMuteIcon || !smallMuteBtn) return;
-    if (video.muted) {
-      smallMuteIcon.className = 'fa-solid fa-volume-xmark';
-      smallMuteBtn.title = 'Sound is Muted. Click to unmute.';
+  function updateMusicButtonUI(playing) {
+    if (!musicToggleBtn || !musicToggleIcon) return;
+    if (playing) {
+      musicToggleBtn.classList.add('playing');
+      musicToggleBtn.classList.remove('muted');
+      musicToggleIcon.className = 'fa-solid fa-volume-high';
+      musicToggleBtn.title = 'Sound is playing. Click to mute.';
+      musicToggleBtn.setAttribute('aria-label', 'Mute background music');
     } else {
-      smallMuteIcon.className = 'fa-solid fa-volume-high';
-      smallMuteBtn.title = 'Sound is On. Click to mute.';
+      musicToggleBtn.classList.remove('playing');
+      musicToggleBtn.classList.add('muted');
+      musicToggleIcon.className = 'fa-solid fa-volume-xmark';
+      musicToggleBtn.title = 'Sound is muted. Click to play.';
+      musicToggleBtn.setAttribute('aria-label', 'Play background music');
     }
   }
 
-  // Register user interaction to unlock audio policy
+  function startMusicPlayback() {
+    if (!bgAudio) return;
+    const playPromise = bgAudio.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          isMusicPlaying = true;
+          updateMusicButtonUI(true);
+        })
+        .catch(() => {
+          // Autoplay policy prevented playback; will retry on first user interaction
+          isMusicPlaying = false;
+          updateMusicButtonUI(false);
+        });
+    }
+  }
+
+  // Attempt playback from the very beginning
+  startMusicPlayback();
+
+  // Also bind to any early user interaction (tap, scroll, key) to guarantee music starts
   function handleInitialUserGesture() {
-    if (video && video.muted) {
-      video.muted = false;
-      updateMuteButtonUI();
+    if (bgAudio && bgAudio.paused && !bgAudio.muted) {
+      startMusicPlayback();
     }
   }
 
-  ['scroll', 'wheel', 'touchstart', 'touchend', 'click', 'keydown'].forEach((evt) => {
+  ['click', 'touchstart', 'touchend', 'scroll', 'wheel', 'keydown'].forEach((evt) => {
     window.addEventListener(evt, handleInitialUserGesture, { once: true, passive: true });
   });
 
-  // Small Mute / Unmute Button
-  if (smallMuteBtn && video) {
-    smallMuteBtn.addEventListener('click', (e) => {
+  // Toggle button click listener
+  if (musicToggleBtn && bgAudio) {
+    musicToggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      video.muted = !video.muted;
-      updateMuteButtonUI();
-      showToast(video.muted ? 'Audio Muted 🔇' : 'Audio On 🔊');
-    });
-  }
-
-  // Tapping the video also toggles mute / play smoothly
-  if (video) {
-    video.addEventListener('click', () => {
-      if (video.muted) {
-        video.muted = false;
-        updateMuteButtonUI();
-        showToast('Audio On 🔊');
+      if (bgAudio.paused || bgAudio.muted) {
+        bgAudio.muted = false;
+        bgAudio.play().then(() => {
+          isMusicPlaying = true;
+          updateMusicButtonUI(true);
+          showToast('Music Playing 🎵');
+        }).catch(() => {
+          showToast('Audio playback blocked');
+        });
       } else {
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
+        bgAudio.pause();
+        isMusicPlaying = false;
+        updateMusicButtonUI(false);
+        showToast('Music Muted 🔇');
       }
     });
-  }
-
-  // IntersectionObserver: Autoplay only when at least half (55%+) of the video section is in viewport
-  if (video && videoSection && 'IntersectionObserver' in window) {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: [0.2, 0.55] // Requires at least half of the section in view
-    };
-
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.intersectionRatio >= 0.55) {
-          const playPromise = video.play();
-          if (playPromise !== undefined) {
-            playPromise
-              .then(() => {
-                updateMuteButtonUI();
-              })
-              .catch(() => {
-                // If strict unmuted policy blocks, smoothly play muted
-                video.muted = true;
-                updateMuteButtonUI();
-                video.play().catch(() => {});
-
-                const unmuteOnNext = () => {
-                  video.muted = false;
-                  updateMuteButtonUI();
-                  window.removeEventListener('click', unmuteOnNext);
-                  window.removeEventListener('touchstart', unmuteOnNext);
-                };
-                window.addEventListener('click', unmuteOnNext, { once: true });
-                window.addEventListener('touchstart', unmuteOnNext, { once: true });
-              });
-          }
-        } else if (entry.intersectionRatio < 0.2) {
-          // Pause when scrolled out of view to save battery and network bandwidth
-          if (!video.paused) {
-            video.pause();
-          }
-        }
-      });
-    }, observerOptions);
-
-    videoObserver.observe(videoSection);
   }
 
   // -------------------------------------------------------------------------
