@@ -2240,7 +2240,7 @@ body {
     height: 16px;
   }
   .cover-groom-name, .cover-bride-name {
-    font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+    font-size: clamp(1.5rem, 5.3vw, 2.1rem);
     white-space: nowrap;
     font-weight: 600;
     line-height: 1.18;
@@ -2307,6 +2307,9 @@ body {
 }
 
 @media (max-width: 360px) {
+  .cover-groom-name, .cover-bride-name {
+    font-size: 1.45rem;
+  }
   .countdown-section {
     padding: 26px 8px 22px;
   }
