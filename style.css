@@ -860,6 +860,7 @@ body {
    2. FULLSCREEN BORDERLESS VIDEO SECTION
    -------------------------------------------------------------------------- */
 .fullscreen-video-section {
+  display: none !important;
   position: relative;
   width: 100vw;
   height: 100vh;

@@ -161,11 +161,11 @@
         </div>
       </div>
 
-      <!-- Magnetic Call To Action: Watch the Film (Gracefully Positioned at Bottom) -->
-      <a href="#fullscreenVideoSection" class="watch-invitation-btn" id="scrollGuideBtn">
+      <!-- Magnetic Call To Action: View Event Details (Gracefully Positioned at Bottom) -->
+      <a href="#detailsSection" class="watch-invitation-btn" id="scrollGuideBtn">
         <span class="btn-pulse-glow"></span>
-        <span class="btn-icon-wrap"><i class="fa-solid fa-play"></i></span>
-        <span class="btn-text">Watch Invitation Film</span>
+        <span class="btn-icon-wrap"><i class="fa-regular fa-envelope-open"></i></span>
+        <span class="btn-text">View Event Details</span>
         <i class="fa-solid fa-chevron-down btn-arrow"></i>
       </a>
 
@@ -173,12 +173,12 @@
   </header>
 
   <!-- =========================================================================
-       2. FULLSCREEN BORDERLESS VIDEO SECTION (Autoplays with Sound on Scroll)
+       2. FULLSCREEN BORDERLESS VIDEO SECTION (Hidden until video is ready)
        ========================================================================= -->
-  <section class="fullscreen-video-section" id="fullscreenVideoSection">
+  <!--
+  <section class="fullscreen-video-section" id="fullscreenVideoSection" style="display: none;">
     <div class="video-container">
       
-      <!-- Video Element: Edge-to-edge, zero borders, plays when scrolled into view or button clicked -->
       <video 
         id="weddingVideo"
         class="fullscreen-video" 
@@ -194,18 +194,17 @@
         Your browser does not support the video tag.
       </video>
 
-      <!-- Small Subtle Floating Mute Button -->
       <button class="small-mute-btn" id="smallMuteBtn" aria-label="Toggle Sound" title="Sound is On. Click to mute.">
         <i class="fa-solid fa-volume-high" id="smallMuteIcon"></i>
       </button>
 
-      <!-- Bottom Navigation Indicator -->
       <a href="#detailsSection" class="video-scroll-indicator" aria-label="Scroll to Event Details">
         <span>VIEW EVENT DETAILS</span>
         <i class="fa-solid fa-chevron-down"></i>
       </a>
     </div>
   </section>
+  -->
 
   <!-- =========================================================================
        3. ROYAL DETAILS CONTAINER (Well-Spaced, Elegant Hierarchy)

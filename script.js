@@ -461,10 +461,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const scrollGuideBtn = document.getElementById('scrollGuideBtn');
-  if (scrollGuideBtn && videoSection) {
+  const detailsSection = document.getElementById('detailsSection');
+  if (scrollGuideBtn) {
     scrollGuideBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      if (video) {
+      if (video && videoSection) {
         video.muted = false;
         const p = video.play();
         if (p !== undefined) {
@@ -474,8 +475,10 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
         updateMuteButtonUI();
+        videoSection.scrollIntoView({ behavior: 'smooth' });
+      } else if (detailsSection) {
+        detailsSection.scrollIntoView({ behavior: 'smooth' });
       }
-      videoSection.scrollIntoView({ behavior: 'smooth' });
     });
   }
 
