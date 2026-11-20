@@ -337,6 +337,7 @@ body {
   letter-spacing: 0.8px;
   line-height: 1.18;
   margin-bottom: 12px;
+  white-space: nowrap;
   color: #ffffff;
   background: linear-gradient(135deg, #ffffff 0%, #fffdf5 35%, #fae7a5 70%, #d4af37 100%);
   -webkit-background-clip: text;
@@ -353,6 +354,7 @@ body {
   letter-spacing: 0.8px;
   line-height: 1.18;
   margin-top: 2px;
+  white-space: nowrap;
   color: #ffffff;
   background: linear-gradient(135deg, #ffffff 0%, #fffdf5 35%, #fae7a5 70%, #d4af37 100%);
   -webkit-background-clip: text;
@@ -695,6 +697,7 @@ body {
   font-weight: 600;
   letter-spacing: 1px;
   line-height: 1.25;
+  white-space: nowrap;
   background: var(--gold-foil);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -2162,7 +2165,8 @@ body {
     margin-bottom: 18px;
   }
   .groom-name, .bride-name {
-    font-size: 2.15rem;
+    font-size: clamp(1.65rem, 5.5vw, 2.15rem);
+    white-space: nowrap;
     line-height: 1.25;
     letter-spacing: 1.2px;
   }
@@ -2236,7 +2240,8 @@ body {
     height: 16px;
   }
   .cover-groom-name, .cover-bride-name {
-    font-size: 2.3rem;
+    font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+    white-space: nowrap;
     font-weight: 600;
     line-height: 1.18;
     filter: drop-shadow(0 3px 14px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 20px rgba(250, 231, 165, 0.4));
