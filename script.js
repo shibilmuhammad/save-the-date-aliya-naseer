@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gCalUrl.searchParams.set('dates', '20261219T053000Z/20261219T100000Z');
     gCalUrl.searchParams.set(
       'details',
-      'We cordially invite your esteemed presence with family to celebrate the marriage of Aliya Naseer (D/o Mr. Naseer K P & Mrs. Thahira M K) with Muhammed Jawhar C K (S/o Mr. C H Abdul Rahman & Mrs. Khairunnusa C K).\n\nSchedule (10 Rajab 1448 AH):\n• Sacred Nikah Ceremony: 11:00 AM\n• Wedding Reception & Lunch: 12:00 Noon – 03:30 PM\n\nVenue: CR Auditorium, Kannur Mattannur Road, Eachur, Kerala - 670591\nGoogle Maps: https://maps.app.goo.gl/CRkSaL3tnx6ujpxF8?g_st=ic'
+      'We cordially invite your esteemed presence with family to celebrate the marriage of Aliya Naseer (D/o Mr. Naseer K P & Mrs. Thahira M K) with Muhammed Jawhar C K (S/o Mr. C H Abdul Rahman & Mrs. Khairunnusa C K).\n\nSchedule (10 Rajab 1448 AH):\n• Sacred Nikah Ceremony: 11:00 AM at CR Auditorium, Eachur\n• Wedding Reception & Lunch: 12:00 Noon – 03:30 PM at CR Auditorium, Eachur\n\nVenue: CR Auditorium, Kannur Mattannur Road, Eachur, Kerala - 670591\nGoogle Maps: https://maps.app.goo.gl/CRkSaL3tnx6ujpxF8?g_st=ic'
     );
     gCalUrl.searchParams.set('location', 'CR Auditorium, Kannur Mattannur Road, Eachur, Kerala 670591');
     googleCalLink.href = gCalUrl.toString();
@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'DTSTART:20261219T053000Z',
         'DTEND:20261219T100000Z',
         'SUMMARY:Wedding of Muhammed Jawhar C K & Aliya Naseer',
-        'DESCRIPTION:Sacred Nikah Ceremony at 11:00 AM followed by Wedding Reception & Lunch (12:00 Noon – 03:30 PM).\\nAliya Naseer (D/o Mr. Naseer K P & Mrs. Thahira M K) & Muhammed Jawhar C K (S/o Mr. C H Abdul Rahman & Mrs. Khairunnusa C K).\\nVenue: CR Auditorium\\, Kannur Mattannur Road\\, Eachur\\, Kerala - 670591.\\nMaps: https://maps.app.goo.gl/CRkSaL3tnx6ujpxF8?g_st=ic',
+        'DESCRIPTION:Sacred Nikah Ceremony at 11:00 AM at CR Auditorium\\, Eachur\\, followed by Wedding Reception & Lunch (12:00 Noon – 03:30 PM) at CR Auditorium\\, Eachur.\\nAliya Naseer (D/o Mr. Naseer K P & Mrs. Thahira M K) & Muhammed Jawhar C K (S/o Mr. C H Abdul Rahman & Mrs. Khairunnusa C K).\\nVenue: CR Auditorium\\, Kannur Mattannur Road\\, Eachur\\, Kerala - 670591.\\nMaps: https://maps.app.goo.gl/CRkSaL3tnx6ujpxF8?g_st=ic',
         'LOCATION:CR Auditorium\\, Kannur Mattannur Road\\, Eachur\\, Kerala - 670591',
         'STATUS:CONFIRMED',
         'SEQUENCE:0',

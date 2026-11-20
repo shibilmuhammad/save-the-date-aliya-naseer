@@ -1624,6 +1624,24 @@ body {
   border-radius: var(--radius-full);
 }
 
+.venue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(212, 175, 55, 0.14);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  color: var(--gold-champagne);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+.venue-badge i {
+  color: var(--gold-pure);
+  font-size: 0.72rem;
+}
+
 .event-name {
   font-family: var(--font-editorial);
   font-size: 1.4rem;
