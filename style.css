@@ -330,26 +330,32 @@ body {
 }
 
 .cover-groom-name {
-  font-family: var(--font-editorial);
-  font-size: 2.85rem;
+  font-family: 'Playfair Display', 'Bodoni Moda', Georgia, serif;
+  font-size: 2.95rem;
   font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  line-height: 1.16;
-  color: #FAF7F0;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9);
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  line-height: 1.18;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 0%, #fffdf5 35%, #fae7a5 70%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 24px rgba(250, 231, 165, 0.45));
   animation: textSlideUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
 }
 
 .cover-bride-name {
-  font-family: var(--font-editorial);
-  font-size: 2.85rem;
+  font-family: 'Playfair Display', 'Bodoni Moda', Georgia, serif;
+  font-size: 2.95rem;
   font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  line-height: 1.16;
-  color: #FAF7F0;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9);
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  line-height: 1.18;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 0%, #fffdf5 35%, #fae7a5 70%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 24px rgba(250, 231, 165, 0.45));
   animation: textSlideUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
 }
 
@@ -2224,8 +2230,10 @@ body {
     height: 16px;
   }
   .cover-groom-name, .cover-bride-name {
-    font-size: 2.15rem;
-    line-height: 1.15;
+    font-size: 2.3rem;
+    font-weight: 600;
+    line-height: 1.18;
+    filter: drop-shadow(0 3px 14px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 20px rgba(250, 231, 165, 0.4));
   }
   .cover-amp-symbol {
     font-size: 2.3rem;
