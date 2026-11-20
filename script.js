@@ -1,5 +1,5 @@
 /**
- * Save the Date - Mohammed Anas & Fathimath Shafika
+ * Save the Date - Muhammed Jawhar & Aliya Naseer
  * Royal Golden Particles, Fullscreen Video Autoplay with Sound,
  * Countdown, Calendar, Directions & Sharing Logic
  */
@@ -359,9 +359,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------------------------------
-  // 3. COUNTDOWN TIMER (27th December 2026, 05:00 PM IST)
+  // 3. COUNTDOWN TIMER (19th December 2026, 11:00 AM IST)
   // -------------------------------------------------------------------------
-  const weddingDate = new Date('2026-12-27T17:00:00+05:30').getTime();
+  const weddingDate = new Date('2026-12-19T11:00:00+05:30').getTime();
 
   const daysEl = document.getElementById('days');
   const hoursEl = document.getElementById('hours');
@@ -416,13 +416,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (googleCalLink) {
     const gCalUrl = new URL('https://calendar.google.com/calendar/render');
     gCalUrl.searchParams.set('action', 'TEMPLATE');
-    gCalUrl.searchParams.set('text', 'Wedding: Mohammed Anas & Fathimath Shafika');
-    gCalUrl.searchParams.set('dates', '20261227T113000Z/20261227T173000Z');
+    gCalUrl.searchParams.set('text', 'Wedding: Muhammed Jawhar & Aliya Naseer');
+    gCalUrl.searchParams.set('dates', '20261219T053000Z/20261219T100000Z');
     gCalUrl.searchParams.set(
       'details',
-      'Save the Date! Sacred Nikah ceremony at 05:00 PM followed by Wedding Reception.\n\nVenue: The Flora By Sunflower, Madhur, Kasaragod, Kerala - 671124\nGoogle Maps: https://maps.app.goo.gl/Qksm7bKJoUfYUYEu8?g_st=ic'
+      'Save the Date! Sacred Nikah ceremony at 11:00 AM followed by Wedding Reception & Lunch (11:00 AM - 03:30 PM).\n\nVenue: CR Auditorium, Kannur Mattannur Road, Eachur, Kerala - 670591\nGoogle Maps: https://maps.app.goo.gl/CRkSaL3tnx6ujpxF8?g_st=ic'
     );
-    gCalUrl.searchParams.set('location', 'The Flora By Sunflower, Madhur, Kasaragod, Kerala 671124');
+    gCalUrl.searchParams.set('location', 'CR Auditorium, Kannur Mattannur Road, Eachur, Kerala 670591');
     googleCalLink.href = gCalUrl.toString();
   }
 
@@ -432,17 +432,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const icsContent = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
-        'PRODID:-//Save The Date//Mohammed Anas & Fathimath Shafika//EN',
+        'PRODID:-//Save The Date//Muhammed Jawhar & Aliya Naseer//EN',
         'CALSCALE:GREGORIAN',
         'METHOD:PUBLISH',
         'BEGIN:VEVENT',
-        'UID:wedding-anas-shafika-20261227@wedding',
+        'UID:wedding-jawhar-aliya-20261219@wedding',
         'DTSTAMP:20261116T000000Z',
-        'DTSTART:20261227T113000Z',
-        'DTEND:20261227T173000Z',
-        'SUMMARY:Wedding of Mohammed Anas & Fathimath Shafika',
-        'DESCRIPTION:Sacred Nikah Ceremony at 05:00 PM followed by Wedding Reception.\\nVenue: The Flora By Sunflower\\, Madhur\\, Kasaragod\\, Kerala.\\nMaps: https://maps.app.goo.gl/Qksm7bKJoUfYUYEu8?g_st=ic',
-        'LOCATION:The Flora By Sunflower\\, Madhur\\, Kasaragod\\, Kerala - 671124',
+        'DTSTART:20261219T053000Z',
+        'DTEND:20261219T100000Z',
+        'SUMMARY:Wedding of Muhammed Jawhar & Aliya Naseer',
+        'DESCRIPTION:Sacred Nikah Ceremony at 11:00 AM followed by Wedding Reception & Lunch (11:00 AM - 03:30 PM).\\nVenue: CR Auditorium\\, Kannur Mattannur Road\\, Eachur\\, Kerala - 670591.\\nMaps: https://maps.app.goo.gl/CRkSaL3tnx6ujpxF8?g_st=ic',
+        'LOCATION:CR Auditorium\\, Kannur Mattannur Road\\, Eachur\\, Kerala - 670591',
         'STATUS:CONFIRMED',
         'SEQUENCE:0',
         'END:VEVENT',
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
-      link.setAttribute('download', 'Anas_and_Shafika_Wedding.ics');
+      link.setAttribute('download', 'Jawhar_and_Aliya_Wedding.ics');
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -486,8 +486,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (shareBtn) {
     shareBtn.addEventListener('click', async () => {
       const shareData = {
-        title: 'Save the Date | Mohammed Anas & Fathimath Shafika',
-        text: 'Save the Date! Mohammed Anas & Fathimath Shafika are getting married on Sunday, 27th December 2026 at The Flora by Sunflower, Madhur, Kasaragod.',
+        title: 'Save the Date | Muhammed Jawhar & Aliya Naseer',
+        text: 'Save the Date! Muhammed Jawhar & Aliya Naseer are getting married on Saturday, 19th December 2026 at CR Auditorium, Eachur.',
         url: window.location.href
       };
 
@@ -511,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyAddressBtn = document.getElementById('copyAddressBtn');
   if (copyAddressBtn) {
     copyAddressBtn.addEventListener('click', () => {
-      const address = 'The Flora By Sunflower, Madhur, Kasaragod, Kerala - 671124';
+      const address = 'CR Auditorium, Kannur Mattannur Road, Eachur, Kerala - 670591';
       copyToClipboard(address, 'Address copied to clipboard!');
     });
   }
