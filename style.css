@@ -2044,6 +2044,35 @@ body {
   color: var(--text-muted);
 }
 
+.footer-credits {
+  margin-top: 26px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+.credits-text {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+  margin: 0;
+}
+
+.credits-brand,
+.credits-contact {
+  color: rgba(212, 175, 55, 0.75);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.credits-brand:hover,
+.credits-contact:hover {
+  color: var(--gold-bright);
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
 /* --------------------------------------------------------------------------
    Responsive Layout & Mobile Harmony (Airy, Regal & Uncongested Spacing)
    -------------------------------------------------------------------------- */
