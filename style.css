@@ -1457,6 +1457,11 @@ body {
   background: #000;
 }
 
+.venue-photo-lead.single-venue-photo {
+  margin-bottom: 0;
+  max-height: 380px;
+}
+
 .venue-photo-lead img {
   width: 100%;
   height: 100%;
